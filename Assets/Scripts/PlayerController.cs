@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private CharacterController _characterController;
-    public Animator Amin;
+    public Animator Anim;
 
     private float _fallVelocity = 0;
     private Vector3 _moveVector;
@@ -20,21 +20,37 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (_moveVector != Vector3.zero) Amin.SetBool("IsWalk", true);
-        else Amin.SetBool("IsWalk", false);
 
         _moveVector = Vector3.zero;
+        Anim.SetFloat("speed", 0);
+        Anim.SetFloat("LateralSpeed", 0);
 
-        if (Input.GetKey(KeyCode.W)) _moveVector += transform.forward;
-        if (Input.GetKey(KeyCode.S)) _moveVector -= transform.forward;
-        if (Input.GetKey(KeyCode.D)) _moveVector += transform.right;
-        if (Input.GetKey(KeyCode.A)) _moveVector -= transform.right;
+        if (Input.GetKey(KeyCode.W))
+        {
+            _moveVector += transform.forward;
+            Anim.SetFloat("speed", 1);
+        }
+        if (Input.GetKey(KeyCode.S))
+        { 
+            _moveVector -= transform.forward;
+            Anim.SetFloat("speed", -1);
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            _moveVector += transform.right;
+            Anim.SetFloat("LateralSpeed", 1);
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            _moveVector -= transform.right;
+            Anim.SetFloat("LateralSpeed", -1);
+        }
 
 
         if (Input.GetKeyDown(KeyCode.Space)&&_characterController.isGrounded)
         {
             _fallVelocity = -JumpForce;
-            Amin.SetBool("IsGrounded", false);
+            Anim.SetBool("IsGrounded", false);
         }
     }
     void FixedUpdate()
@@ -47,7 +63,7 @@ public class PlayerController : MonoBehaviour
         if(_characterController.isGrounded)
         {
             _fallVelocity = 0;
-            Amin.SetBool("IsGrounded", true);
+            Anim.SetBool("IsGrounded", true);
         }
     }
 }
