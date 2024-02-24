@@ -5,28 +5,27 @@ public class Bullet : MonoBehaviour
 {
     public float Speed;
     public float LifeTime;
+    public float Damage=10;
     private void Start()
     {
         Invoke("DestroyBullet", LifeTime);
-    }
-    void Update()
-    {
-
     }
     private void FixedUpdate()
     {
         MoveFixedUpdate();
     }
-    private void MoveFixedUpdate()
-    {
-        transform.position += -transform.right * Speed * Time.fixedDeltaTime;
-    }
+
     private void OnCollisionEnter(Collision collision)
     {
+        EnemyDamage(collision);
         DestroyBullet();
     }
-    private void DestroyBullet()
+
+    private void EnemyDamage(Collision collision)
     {
-        Destroy(gameObject);
+        var EnemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
+        if (EnemyHealth != null) EnemyHealth.DealDamage(Damage);
     }
+    private void DestroyBullet() { Destroy(gameObject); }
+    private void MoveFixedUpdate() { transform.position += transform.forward * Speed * Time.fixedDeltaTime; }
 }

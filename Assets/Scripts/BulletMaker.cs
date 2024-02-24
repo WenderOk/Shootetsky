@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class BulletMaker : MonoBehaviour
 {
-    public Bullet BulletPrefab;
+    public Bullet Bullet;
     public Transform Shooter;
+    public Transform Target;
     void Start()
     {
         
@@ -18,7 +19,7 @@ public class BulletMaker : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            Instantiate(BulletPrefab,Shooter.position,Shooter.rotation);
+            Instantiate(Bullet,Shooter.position, Shooter.rotation);
         }
     }
 }
