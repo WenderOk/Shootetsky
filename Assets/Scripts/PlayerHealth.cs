@@ -7,8 +7,10 @@ public class PlayerHealth : MonoBehaviour
     private float _maxValue;
     public GameObject GameplayUI;
     public GameObject GameOverScreen;
+    public GameObject HealEffect;
     public float Value=100;
     public Image HPbar;
+    public Animator Anim;
     
     private void Start()
     {
@@ -18,12 +20,20 @@ public class PlayerHealth : MonoBehaviour
     public void DealDamage(float Damage)
     {
         Value -= Damage;
-        HPbar.fillAmount = Value / _maxValue;
+        HealthBarUpdate();
         if (Value <= 0)
         {
             PlayerDead();
         }
     }
+    public void AddHealth(float amount)
+    {
+        Value += amount;
+        Value = Mathf.Clamp(Value,0,_maxValue);
+        HealthBarUpdate();
+        HealEffect.GetComponent<ParticleSystem>().Play();
+    }
+    private void HealthBarUpdate() { HPbar.fillAmount = Value / _maxValue; }
     private void PlayerDead()
     {
         GameplayUI.SetActive(false);
@@ -31,6 +41,6 @@ public class PlayerHealth : MonoBehaviour
         GetComponent<CharacterController>().enabled = false;
         GetComponent<BulletMaker>().enabled = false;
         GetComponent<CameraRotation>().enabled = false;
-        GetComponent<Animator>().enabled = false;
+        Anim.SetTrigger("Death");
     }
 }

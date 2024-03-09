@@ -11,9 +11,13 @@ public class EnemyAI : MonoBehaviour
 
     public List<Transform> PatrolPoints;
     public PlayerController player;
+    public Animator Anim;
+
     public float ViewAngle;
     public float NoticeDistace;
     public float Damage;
+    public float ChaseSpeed;
+    public float NormalSpeed;
     void Start()
     {
         InitComponents();
@@ -42,11 +46,22 @@ public class EnemyAI : MonoBehaviour
     }
     private void ChaseUpdate()
     {
-        if (_isPlayerNoticed) _NMAgent.destination = player.transform.position;
+        if (_isPlayerNoticed)
+        {
+            _NMAgent.destination = player.transform.position;
+            Anim.SetBool("IsPlayerNoticed", true);
+            _NMAgent.speed = ChaseSpeed;
+        }
+        else
+        {
+            Anim.SetBool("IsPlayerNoticed", false);
+            _NMAgent.speed = NormalSpeed;
+        }
     }
     private void AttackUpdate()
     {
         if (_isPlayerNoticed && _NMAgent.stoppingDistance >= _NMAgent.remainingDistance) _playerHealth.DealDamage(Damage*Time.deltaTime);
+        Anim.SetTrigger("Attack");
     }
     private void InitComponents()
     {

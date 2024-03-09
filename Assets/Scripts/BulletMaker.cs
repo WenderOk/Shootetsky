@@ -7,10 +7,6 @@ public class BulletMaker : MonoBehaviour
     public Bullet Bullet;
     public Transform Shooter;
     public Transform Target;
-    void Start()
-    {
-        
-    }
     void Update()
     {
         Shoot();
