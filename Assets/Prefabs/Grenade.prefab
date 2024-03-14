@@ -126,4 +126,5 @@ MonoBehaviour:
   Delay: 3
   ExplosionPrefab: {fileID: 976355850664292999, guid: 03cb7c1a8976ed447a0c561dfa9b187b,
     type: 3}
-  ExplosionFX: {fileID: 100006, guid: e076683e0305e35498b8e8834978c0fa, type: 3}
+  ExplosionFX: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664,
+    type: 3}

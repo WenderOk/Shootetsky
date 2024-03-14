@@ -21,5 +21,12 @@ public class ShooterAim : MonoBehaviour
         else TargetPoint.position = ray.GetPoint(TargetingSkyDis);
 
         transform.LookAt(TargetPoint.position);
+
+        Aiming();
+    }
+    private void Aiming()
+    {
+        if (Input.GetMouseButton(1)) CameraLink.fieldOfView = Mathf.Max(10,CameraLink.fieldOfView-1);
+        else CameraLink.fieldOfView = Mathf.Min(40,CameraLink.fieldOfView+1);
     }
 }

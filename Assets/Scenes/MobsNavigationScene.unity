@@ -485,7 +485,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &336137339
 Transform:
   m_ObjectHideFlags: 0
@@ -2384,21 +2384,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3046306461005678736, guid: 1629a0b80e82a684bb19e4bf478bb03f,
         type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.604
-      objectReference: {fileID: 0}
-    - target: {fileID: 3046306461005678736, guid: 1629a0b80e82a684bb19e4bf478bb03f,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.27
-      objectReference: {fileID: 0}
-    - target: {fileID: 3046306461005678736, guid: 1629a0b80e82a684bb19e4bf478bb03f,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -4.009
-      objectReference: {fileID: 0}
-    - target: {fileID: 3046306461005678736, guid: 1629a0b80e82a684bb19e4bf478bb03f,
-        type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
@@ -2741,6 +2726,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.873
+      objectReference: {fileID: 0}
+    - target: {fileID: 8367628924445992176, guid: 1629a0b80e82a684bb19e4bf478bb03f,
+        type: 3}
+      propertyPath: looping
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3470938592301010094, guid: 1629a0b80e82a684bb19e4bf478bb03f, type: 3}

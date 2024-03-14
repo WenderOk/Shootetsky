@@ -15,7 +15,9 @@ public class BulletMaker : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            Instantiate(Bullet,Shooter.position, Shooter.rotation);
+            var Rot = Quaternion.AngleAxis(90, Vector3.up);
+            Instantiate(Bullet, Shooter.position, Shooter.rotation);
+                //(Shooter.rotation.x, Shooter.rotation.y + 90, Shooter.rotation.z);
         }
     }
 }

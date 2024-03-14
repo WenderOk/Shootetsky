@@ -21,7 +21,7 @@ public class Explosion : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         var playerHealth = other.GetComponent<PlayerHealth>();
-        if(playerHealth!=null) playerHealth.DealDamage(Damage);
+        if(playerHealth!=null) playerHealth.DealDamage(Damage/Vector3.Distance(other.transform.position,transform.position));
         
         var enemyHealth = other.GetComponent<EnemyHealth>();
         if (enemyHealth != null) enemyHealth.DealDamage(Damage);

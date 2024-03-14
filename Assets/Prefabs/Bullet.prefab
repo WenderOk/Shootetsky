@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5056451538641720480}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.0000000084282, y: 0.000000011238, z: -0.0029459}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalPosition: {x: -0.0000000038407, y: 0.0000000051219, z: -0.0013154}
+  m_LocalScale: {x: 0.6674, y: 0.6674, z: 0.6674}
   m_Children:
   - {fileID: 7230536024974342464}
   m_Father: {fileID: 0}
@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 446085d63b7ee284d9ec83a9b56dcc18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 50
+  Speed: 10
   LifeTime: 20
   Damage: 10
 --- !u!1001 &7230536024974532934
@@ -92,6 +92,18 @@ PrefabInstance:
     - target: {fileID: 464902, guid: 15955d493dc8d5d4ead968d707151295, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 464902, guid: 15955d493dc8d5d4ead968d707151295, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 464902, guid: 15955d493dc8d5d4ead968d707151295, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 464902, guid: 15955d493dc8d5d4ead968d707151295, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 464902, guid: 15955d493dc8d5d4ead968d707151295, type: 3}
       propertyPath: m_LocalPosition.x
@@ -133,6 +145,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3375946, guid: 15955d493dc8d5d4ead968d707151295, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -8481192455168498017, guid: b4750f4c96707ef41857e12f6771b2fe,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15955d493dc8d5d4ead968d707151295, type: 3}
 --- !u!4 &7230536024974342464 stripped
