@@ -5,12 +5,7 @@ public class GrenadeMaker : MonoBehaviour
     public GameObject Grenate;
     public float Range;
     public float Force;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    public float Damage;
     // Update is called once per frame
     void Update()
     {
@@ -18,7 +13,7 @@ public class GrenadeMaker : MonoBehaviour
     }
     private void SpawnGrenade()
     {
-
+        Grenate.GetComponent<Grenade>().Damage = Damage;
         var spawnedObject = Instantiate(Grenate);
         spawnedObject.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 
