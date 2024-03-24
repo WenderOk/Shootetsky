@@ -1,8 +1,8 @@
- using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-/* Example script to apply trauma to the camera or any game object */
-public class TraumaInducer : MonoBehaviour 
+public class ShootShaker : MonoBehaviour
 {
     [Tooltip("Seconds to wait before trigerring the explosion particles and the trauma effect")]
     public float Delay = 1;
@@ -11,22 +11,20 @@ public class TraumaInducer : MonoBehaviour
     [Tooltip("Maximum distance in which objects are affected by this TraumaInducer")]
     public float Range = 45;
 
-    private IEnumerator Start()
-    {
-        /* Wait for the specified delay */
-        yield return new WaitForSeconds(Delay);
-        /* Play all the particle system this object has */
-        PlayParticles();
+    public void MakeStress()
+    { 
+            /* Play all the particle system this object has */
+            PlayParticles();
 
-        /* Find all gameobjects in the scene and loop through them until we find all the nearvy stress receivers */
-        var targets = UnityEngine.Object.FindObjectsOfType<GameObject>();
-        for(int i = 0; i < targets.Length; ++i)
+            /* Find all gameobjects in the scene and loop through them until we find all the nearvy stress receivers */
+            var targets = UnityEngine.Object.FindObjectsOfType<GameObject>();
+        for (int i = 0; i < targets.Length; ++i)
         {
             var receiver = targets[i].GetComponent<StressReceiver>();
-            if(receiver == null) continue;
+            if (receiver == null) continue;
             float distance = Vector3.Distance(transform.position, targets[i].transform.position);
             /* Apply stress to the object, adjusted for the distance */
-            if(distance > Range) continue;
+            if (distance > Range) continue;
             float distance01 = Mathf.Clamp01(distance / Range);
             float stress = (1 - Mathf.Pow(distance01, 2)) * MaximumStress;
             receiver.InduceStress(stress);
@@ -34,19 +32,14 @@ public class TraumaInducer : MonoBehaviour
     }
 
     /* Search for all the particle system in the game objects children */
-    private void PlayParticles()
+    public void PlayParticles()
     {
         var children = transform.GetComponentsInChildren<ParticleSystem>();
-        for(var i  = 0; i < children.Length; ++i)
+        for (var i = 0; i < children.Length; ++i)
         {
             children[i].Play();
         }
         var current = GetComponent<ParticleSystem>();
-        if(current != null) current.Play();
-        OnEnd();
-    }
-    private void OnEnd()
-    {
-        Destroy(gameObject, Delay + 2);
+        if (current != null) current.Play();
     }
 }
