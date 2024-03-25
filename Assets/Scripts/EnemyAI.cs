@@ -1,5 +1,4 @@
-﻿
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -60,8 +59,11 @@ public class EnemyAI : MonoBehaviour
     }
     private void AttackUpdate()
     {
-        if (_isPlayerNoticed && _NMAgent.stoppingDistance >= _NMAgent.remainingDistance) _playerHealth.DealDamage(Damage*Time.deltaTime);
-        Anim.SetTrigger("Attack");
+        if (_isPlayerNoticed && _NMAgent.stoppingDistance >= _NMAgent.remainingDistance)
+        {
+            _playerHealth.DealDamage(Damage * Time.deltaTime);
+            Anim.SetTrigger("Attack");
+        }
     }
     private void InitComponents()
     {

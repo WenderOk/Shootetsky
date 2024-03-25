@@ -24,6 +24,6 @@ public class Explosion : MonoBehaviour
         if(playerHealth!=null) playerHealth.DealDamage(Damage/Vector3.Distance(other.transform.position,transform.position));
         
         var enemyHealth = other.GetComponent<EnemyHealth>();
-        if (enemyHealth != null) enemyHealth.DealDamage(Damage);
+        if (enemyHealth != null) enemyHealth.DealDamage(Damage/ Vector3.Distance(other.transform.position, transform.position));
     }
 }
