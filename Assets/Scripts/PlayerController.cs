@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -37,6 +35,8 @@ public class PlayerController : MonoBehaviour
     {
         _moveVector = Vector3.zero;
         Anim.SetInteger("Direction", 0);
+        /*if (_characterController.velocity != Vector3.zero) GetComponent<AudioSource>().enabled = true;
+        else GetComponent<AudioSource>().enabled = false;*/
 
         if (Input.GetKey(KeyCode.W))
         {

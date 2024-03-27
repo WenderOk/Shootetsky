@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraRotation : MonoBehaviour
@@ -7,9 +5,8 @@ public class CameraRotation : MonoBehaviour
     public float RotationSpeed;
     public Transform CameraAxisTransform;
     public float minAngle;
-    public float maxAngle; 
+    public float maxAngle;
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y + Time.fixedDeltaTime * Input.GetAxis("Mouse X")*RotationSpeed, 0);

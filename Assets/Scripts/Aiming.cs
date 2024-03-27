@@ -4,7 +4,18 @@ public class Aiming : MonoBehaviour
 {
     public Camera CameraLink;
     public Animator Anim;
-    public float AimSpeed=1;
+    public float ToAimSpeed=1;
+
+    private float NormalRotSpeed;
+    public float AimingRotSpeed;
+
+    public float AimingSpeed;
+    private float NormalSpeed;
+    private void Start()
+    {
+        NormalRotSpeed = GetComponent<CameraRotation>().RotationSpeed;
+        NormalSpeed = GetComponent<PlayerController>().Speed;
+    }
     void Update()
     {
         Aimingupdate();
@@ -13,14 +24,16 @@ public class Aiming : MonoBehaviour
     {
         if (Input.GetMouseButton(1))
         {
-            CameraLink.fieldOfView = Mathf.Max(30, CameraLink.fieldOfView - AimSpeed);
-            GetComponent<CameraRotation>().RotationSpeed = 100;
+            CameraLink.fieldOfView = Mathf.Max(30, CameraLink.fieldOfView - ToAimSpeed);
+            GetComponent<CameraRotation>().RotationSpeed = AimingRotSpeed;
+            GetComponent<PlayerController>().Speed = AimingSpeed;
             Anim.SetBool("IsAiming", true);
         }
         else
         {
-            CameraLink.fieldOfView = Mathf.Min(45, CameraLink.fieldOfView + AimSpeed);
-            GetComponent<CameraRotation>().RotationSpeed = 250;
+            CameraLink.fieldOfView = Mathf.Min(45, CameraLink.fieldOfView + ToAimSpeed);
+            GetComponent<CameraRotation>().RotationSpeed = NormalRotSpeed;
+            GetComponent<PlayerController>().Speed = NormalSpeed;
             Anim.SetBool("IsAiming", false);
         }
     }

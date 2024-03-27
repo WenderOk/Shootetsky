@@ -19,7 +19,7 @@ public class BulletMaker : MonoBehaviour
     }
     void Shoot()
     {
-        if(Input.GetMouseButtonDown(0)&& Input.GetMouseButton(1)&& CurrentCoulDown==0)
+        if(Input.GetMouseButtonDown(0)&& Input.GetMouseButton(1)&& CurrentCoulDown<=0)
         {
             CurrentCoulDown = CoulDown;
             var Rot = Quaternion.AngleAxis(90, Vector3.up);

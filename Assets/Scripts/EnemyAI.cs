@@ -59,10 +59,11 @@ public class EnemyAI : MonoBehaviour
     }
     private void AttackUpdate()
     {
+        Anim.SetBool("Attack", false);
         if (_isPlayerNoticed && _NMAgent.stoppingDistance >= _NMAgent.remainingDistance)
         {
             _playerHealth.DealDamage(Damage * Time.deltaTime);
-            Anim.SetTrigger("Attack");
+            Anim.SetBool("Attack",true);
         }
     }
     private void InitComponents()

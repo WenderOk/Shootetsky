@@ -12,6 +12,10 @@ public class EnemyHealth : MonoBehaviour
         playerExp = FindObjectOfType<PlayerExp>();
         _checker = FindObjectOfType<WinChecker>();
     }
+   void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L)) Death();
+    }
     public void DealDamage(float Damage)
     {
         playerExp.AddExp(Damage);
@@ -19,11 +23,15 @@ public class EnemyHealth : MonoBehaviour
         Anim.SetTrigger("Damage");
         if (Value <= 0)
         {
-            Anim.SetTrigger("Death");
-            GetComponent<NavMeshAgent>().enabled = false;
-            GetComponent<EnemyAI>().enabled = false;
-            GetComponent<CapsuleCollider>().enabled = false;
-            _checker.Enemies++;
+            Death();
         }
+    }
+    private void Death()
+    {
+        Anim.SetTrigger("Death");
+        GetComponent<NavMeshAgent>().enabled = false;
+        GetComponent<EnemyAI>().enabled = false;
+        GetComponent<CapsuleCollider>().enabled = false;
+        _checker.DeadEnemies++;
     }
 }

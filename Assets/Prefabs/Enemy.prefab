@@ -96,10 +96,10 @@ MonoBehaviour:
   - {fileID: 0}
   player: {fileID: 0}
   Anim: {fileID: 1061531843431281426}
-  ViewAngle: 100
+  ViewAngle: 90
   NoticeDistace: 3
   Damage: 5
-  ChaseSpeed: 7
+  ChaseSpeed: 5
   NormalSpeed: 2
 --- !u!114 &1061531843441997618
 MonoBehaviour:
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab044cc53f280bf4f95b994cb7a5f19c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Value: 150
+  Value: 100
   Anim: {fileID: 1061531843431281426}
 --- !u!136 &1061531843441997772
 CapsuleCollider:
